@@ -1,0 +1,14 @@
+# Dependency directories (This blocks everything in your warning logs!)
+node_modules/
+
+# Environment variables / Secrets
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor directories
+.vscode/
+.idea/

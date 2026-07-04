@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EventSphere | Landing Page</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#ff4081',
+            surface: '#f9f9f9',
+            dark: '#1A1A1A',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['Poppins', 'sans-serif'],
+          },
+          borderRadius: {
+            'none': '0px',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="global-styles">
+    /* Enforce zero border radius globally as per PRD */
+    * { border-radius: 0 !important; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; background-color: #f9f9f9; color: #1a1a1a; }
+    h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', serif; }
+    
+    .hero-overlay {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+    }
+    
+    .date-badge {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+<!-- BEGIN: MainHeader -->
+<header class="fixed top-0 left-0 w-full z-50 bg-white shadow-sm h-20">
+<nav class="container mx-auto px-6 h-full flex items-center justify-between">
+<!-- Logo -->
+<a class="text-primary text-3xl font-black font-serif tracking-tight" href="#">EventSphere</a>
+<!-- Navigation Links -->
+<div class="hidden lg:flex items-center space-x-8">
+<a class="text-sm font-semibold tracking-widest hover:text-primary transition-colors uppercase" href="#home">Home</a>
+<a class="text-sm font-semibold tracking-widest hover:text-primary transition-colors uppercase" href="#about">About</a>
+<a class="text-sm font-semibold tracking-widest hover:text-primary transition-colors uppercase" href="#services">Events</a>
+<a class="text-sm font-semibold tracking-widest hover:text-primary transition-colors uppercase" href="#gallery">Gallery</a>
+<a class="text-sm font-semibold tracking-widest hover:text-primary transition-colors uppercase" href="#contact">Contact</a>
+</div>
+<!-- Actions -->
+<div class="flex items-center space-x-6">
+<a class="hidden md:block text-sm font-semibold tracking-widest hover:text-primary transition-colors uppercase" href="#">Login</a>
+<button class="bg-primary text-white px-6 py-3 text-xs font-bold tracking-[0.2em] uppercase hover:bg-black transition-all">
+          Make an Appointment
+        </button>
+</div>
+</nav>
+</header>
+<!-- END: MainHeader -->
+<main>
+<!-- BEGIN: HeroSection -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden" id="home">
+<!-- Background Image -->
+<div class="absolute inset-0 z-0">
+<img alt="Grand Expo Hall" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6vVJiWQTWwxlK5JukYLa50jdIoGgo5NIelRNm3Ur-_kmnBWsDE98-Ygyw0q1gN2DuoqgpM32M92LFWqllmmJxYFZuLzzbLaemOf5N4BLngLHq7GRFtvEMHtqTuJ68QRuUgkYpx27s3KTvTBHtke6LNkW21bPbQp-tVIB2FJJOogrO3xXImB7NCdtQ6t8dXdt0NPSiakTsFvcx6cQeROuuu_RKpCtEZ12GA_2gx5lZgVLiUaQuTDF_qGcoKW3lo8OZmddTuWhAyXQ"/>
+<div class="absolute inset-0 hero-overlay"></div>
+</div>
+<!-- Hero Content -->
+<div class="relative z-10 text-center px-4 max-w-5xl">
+<h1 class="text-white text-5xl md:text-8xl font-black mb-8 leading-tight uppercase tracking-tight">
+          Make Your Event <br/> <span class="italic font-normal">Memorable</span>
+</h1>
+<p class="text-white/80 text-lg mb-10 max-w-2xl mx-auto font-light tracking-wide">
+          Transforming visions into extraordinary experiences with premium event management tailored to your unique style.
+        </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="bg-primary text-white px-10 py-5 text-sm font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-black transition-all w-full sm:w-auto">
+            Explore Events
+          </button>
+<button class="border-2 border-white text-white px-10 py-[1.125rem] text-sm font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-black transition-all w-full sm:w-auto">
+            Register Now
+          </button>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 text-xs tracking-widest uppercase flex flex-col items-center gap-2">
+<span>Scroll Down</span>
+<div class="w-px h-12 bg-white/30 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-full bg-primary animate-bounce"></div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: AboutSection -->
+<section class="py-24 bg-surface overflow-hidden" id="about">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<!-- Image Collage -->
+<div class="relative h-[600px]" data-purpose="magazine-collage">
+<div class="absolute top-0 left-0 w-3/4 h-[80%] z-10 border-8 border-white shadow-xl">
+<img alt="Event setup" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1t_N1VHlYCKb3WSnTsYwE6oWMyw4OZHY3u_6UHZlJrw2EUQKqY2LARbnlxc2lVl7SKss0dfjmL9RzNuPRJjjW6vcBPv0OltBRb1ZHVALhs1JnPEm8_NVWdXxicV1IC3Q6WRMDdKyyyrS7nOUXn9RPJs1Z_Ashyk5_CwxGJ84_7jDVOwjUFUgZlGvGnOeJ43p-W1ruDLH0BIgsnIYhR8cUkaT6wGKTj5sYB-9vSKshJy9rspLfhv8S6n_AuS909EJfHU_AMk7NEsc"/>
+</div>
+<div class="absolute bottom-0 right-0 w-2/3 h-[70%] z-20 border-8 border-white shadow-2xl">
+<img alt="Fashion Event" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJgV8xXyfO8ifMazxc7OceNsauKWfIu7QS4_RceJMpPP2dmJ9uJnVJsn6SJ8Lb4UDrwVvF6mBevJeKlppUoH8OZV_jBWTUD7rMkJZFW0DSVfqs8cWDqgUIT6JAHdmNpf2hrGNFLZ0v7uoLXCKiPK1-ofrX3e3g_IbfVRMvrrCmYFYv3Gko0wdLB_G08_-UwjvZ7pOG1qMCKt0NOFK-bIOhPQM6YbZStTX_Np4gHArHLeWvOljj5loi7O5NHteeyGS7ZLWLale_cAE"/>
+</div>
+<!-- Decorative Gold Rings Graphic -->
+<div class="absolute -bottom-10 -left-10 opacity-20 w-48 h-48 pointer-events-none">
+<svg viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<circle cx="70" cy="100" fill="none" r="60" stroke="#D4AF37" stroke-width="2"></circle>
+<circle cx="130" cy="100" fill="none" r="60" stroke="#D4AF37" stroke-width="2"></circle>
+</svg>
+</div>
+</div>
+<!-- Content -->
+<div class="space-y-8">
+<div class="space-y-4">
+<span class="text-primary font-bold tracking-[0.3em] uppercase text-sm block">About Us</span>
+<h2 class="text-4xl md:text-6xl font-black leading-tight text-dark">
+                Best Memorable Day Of Your Event
+              </h2>
+</div>
+<p class="text-gray-600 leading-relaxed text-lg">
+              We specialize in curating high-end corporate expos, grand destination weddings, and bespoke private gatherings. Our team of expert designers and planners work tirelessly to ensure every detail reflects excellence.
+            </p>
+<ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<li class="flex items-center gap-3">
+<span class="text-primary">✦</span> Professional Planning
+              </li>
+<li class="flex items-center gap-3">
+<span class="text-primary">✦</span> Creative Decorations
+              </li>
+<li class="flex items-center gap-3">
+<span class="text-primary">✦</span> Premium Catering
+              </li>
+<li class="flex items-center gap-3">
+<span class="text-primary">✦</span> Vendor Management
+              </li>
+</ul>
+<button class="bg-black text-white px-8 py-4 text-xs font-bold tracking-[0.2em] uppercase hover:bg-primary transition-all">
+              Discover Our Story
+            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- END: AboutSection -->
+<!-- BEGIN: ServicesSection -->
+<section class="py-24 bg-white" id="services">
+<div class="container mx-auto px-6 text-center mb-16">
+<span class="text-primary font-bold tracking-[0.3em] uppercase text-sm">Our Services</span>
+<h2 class="text-4xl md:text-5xl font-black mt-4">Expertise We Offer</h2>
+</div>
+<div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Service Card 1 -->
+<div class="group bg-surface hover:shadow-2xl transition-all duration-500 overflow-hidden">
+<div class="h-64 overflow-hidden">
+<img alt="Destination Expo" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeTitnoIINbjZK9xRdwuqKM_Fy2pf7AxRvIerTfS0Fs6RhtTdjT98lY_26qzVuDwEdCoK1tnsEyjV4RTDh4wSkAg5dKNg-_8nqFbDKP7U3LDA_hNZQVVZiv9oMU4tF7VqGU-gEJA_COzEvOisIJKM5SFcMRK2ZjJckwB1Q7bvMVT0SmFNn0iDM9yb35p1zpsmust2ZQ-xJZU_qq9ylJptaeKClng-6gOrWew1R9M3Ch0nKs1PsCOEtp7Ry71c9jdfR0SYioKzDgIs"/>
+</div>
+<div class="p-8">
+<h3 class="text-2xl font-bold mb-4">Destination Expo</h3>
+<p class="text-gray-600 mb-6 line-clamp-3">Full-scale corporate exhibitions and trade fairs managed at premier global destinations with end-to-end logistics support.</p>
+<a class="inline-block text-xs font-bold tracking-widest uppercase border-b-2 border-primary pb-1 hover:text-primary transition-colors" href="#">Learn More</a>
+</div>
+</div>
+<!-- Service Card 2 -->
+<div class="group bg-surface hover:shadow-2xl transition-all duration-500 overflow-hidden">
+<div class="h-64 overflow-hidden">
+<img alt="Decoration Service" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUkLAhSolZrB4YKCFH_k55XYalutppORksf7oRahqxIIEan53xLg9Nlmr1bPD9MSUZJedYOW2UHHFRLsoF_0U39oEjVjd7VtRM0ep4N7_tqBdNHll9h9oDbD--_ITvFRxHwq4dsn1OV1kXra5FecJcOZuTK9hXru_BeDh6kQHscFNzTplRTHIFw1-YMw24Fl9975oeRHFkzna0qR_2037JIphfK1Q2MXSPOMtGy7iyb2Ms66BFakGtIoPYqE04s1UnASvHBe4HOlY"/>
+</div>
+<div class="p-8">
+<h3 class="text-2xl font-bold mb-4">Decoration Service</h3>
+<p class="text-gray-600 mb-6 line-clamp-3">From floral arrangements to structural installations, we create breathtaking environments tailored to your theme.</p>
+<a class="inline-block text-xs font-bold tracking-widest uppercase border-b-2 border-primary pb-1 hover:text-primary transition-colors" href="#">Learn More</a>
+</div>
+</div>
+<!-- Service Card 3 -->
+<div class="group bg-surface hover:shadow-2xl transition-all duration-500 overflow-hidden">
+<div class="h-64 overflow-hidden">
+<img alt="Catering Service" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8-ZFkZZ9ZQeTe8ii05m7-bz_A4kBpkQghjvnnogC-Xcrp2hdWa791n8aICHbKxyYbk-zQDRMgzBO-gB0BG2IKXOye_coAZMSIC-RdU4Rzjq03UWghIdc1PtlNtco4NBCLLPISEpdf6OI_g5layk8c09T8ZPSUZ-AXvzkomsWc4IZXXkn_Bw5tXzNLu0atJBD9XzJsSa2wblf9uPvVmZeLAzUYeYNy-ZQIw1xvw0bb3fRQ7WnInms2lSvc6lWA5u2DUelxzMp89HQ"/>
+</div>
+<div class="p-8">
+<h3 class="text-2xl font-bold mb-4">Catering Service</h3>
+<p class="text-gray-600 mb-6 line-clamp-3">A culinary journey featuring international cuisines and Michelin-star standard service for your guests.</p>
+<a class="inline-block text-xs font-bold tracking-widest uppercase border-b-2 border-primary pb-1 hover:text-primary transition-colors" href="#">Learn More</a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ServicesSection -->
+<!-- BEGIN: FeaturedExpos -->
+<section class="py-24 bg-dark text-white">
+<div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div>
+<span class="text-primary font-bold tracking-[0.3em] uppercase text-sm">Upcoming Events</span>
+<h2 class="text-4xl md:text-5xl font-black mt-4">Featured Expos</h2>
+</div>
+<button class="border-2 border-white/20 text-white px-8 py-4 text-xs font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-black transition-all">
+          View All Events
+        </button>
+</div>
+<div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
+<!-- Event 1 -->
+<div class="relative group cursor-pointer overflow-hidden">
+<div class="absolute top-6 left-6 z-20 bg-primary text-white p-4 text-center min-w-[70px]">
+<span class="block text-2xl font-bold leading-none">15</span>
+<span class="text-[10px] uppercase font-bold tracking-widest border-t border-white/30 pt-1 mt-1 block">OCT</span>
+</div>
+<img alt="Tech Expo" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYphtPUZLxyNYBu-l009iqbNJjWEg4qCZ4zngnQJSen5HiVOilw3Z-Qr_SOGYuk-6WQohKxq7VgEcq9ZZ2mLSrRxpcuL6f2dFsmGzw024bfSygbNL4rqI45qKAwyqlApuuqmDMPuq1u8V9WvuHjUP6uDfeOA95D_AbrZynaTr_GXD43FmWFGkDxMTYIPQ3QTofs7bHO42ERBONPEWnRhXxwinXvqpoBe9ro2uMwtw5tJQpTzgj9B878igrJc3jaxV40ULaJ7H-GpI"/>
+<div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black to-transparent">
+<h3 class="text-2xl font-bold mb-2">Global Tech Summit</h3>
+<p class="text-white/60 text-sm">Convention Center, NY</p>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="relative group cursor-pointer overflow-hidden">
+<div class="absolute top-6 left-6 z-20 bg-primary text-white p-4 text-center min-w-[70px]">
+<span class="block text-2xl font-bold leading-none">22</span>
+<span class="text-[10px] uppercase font-bold tracking-widest border-t border-white/30 pt-1 mt-1 block">NOV</span>
+</div>
+<img alt="Design Week" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCivYarCsj9OQV4d-u59Q97nDkEnOOv3MMwUstplCerlVhGshyOi1iKIzh0eXvQibDAM1SIlB9NzylIBewJz3_6dKymuW2VO-7-bJWtDqPkPJe97s4U9FPk1gAzrDmXk_alHWjnO4X3RwnjhPE61IZw8hBGVusS41Ir0WzyWhzuVH2d9Elf8lsEpFp_33e7OT-mu56vzQpV8niwerKJ99s5dzf2pxV2lO86A5duJE6grWnViW8506R89Zv3be68nT8ReOwCKLz55sQ"/>
+<div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black to-transparent">
+<h3 class="text-2xl font-bold mb-2">International Design Week</h3>
+<p class="text-white/60 text-sm">Art District, London</p>
+</div>
+</div>
+<!-- Event 3 -->
+<div class="relative group cursor-pointer overflow-hidden">
+<div class="absolute top-6 left-6 z-20 bg-primary text-white p-4 text-center min-w-[70px]">
+<span class="block text-2xl font-bold leading-none">05</span>
+<span class="text-[10px] uppercase font-bold tracking-widest border-t border-white/30 pt-1 mt-1 block">DEC</span>
+</div>
+<img alt="Music Expo" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3Xoh6N6mip5zECJsa1Yyrvv8K6Eudf8rtGuOi9r4bvlM5B37jzM-zNvnrQ_hChb4FuMsvumfAXekst9yG3ywpDEjArjkqLcFNhcdpuiW89eLON48cGzZFR8yz-livh44Qyczw70wzGsV2naTbFkP1JFdZd7-dzmnZ9hA1n72rdHXs0aXj0t91Xe-D7F3HIVF0K-95RssSFK5gZ5E85Jwps_6gFgxvwxLwm9GgyqArFbeJc5Cqu9cqwwsVCgZB_wAqRNFs6ufRPfw"/>
+<div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black to-transparent">
+<h3 class="text-2xl font-bold mb-2">Luxury Lifestyle Expo</h3>
+<p class="text-white/60 text-sm">Grand Marina, Dubai</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: FeaturedExpos -->
+<!-- BEGIN: VideoSection -->
+<section class="relative h-[60vh] flex items-center justify-center overflow-hidden">
+<img alt="Video Background" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARkNtBPUMqrSynEoz_cS3Cg83VFfQkug7ZoQ3SWkLYZpnoMKClhsxLXPT51pxmWIUyVbqHB2N0KmVIC2t08k6xu7yCu4G51J2qKNg0wUd4VVR99RM3OGflE9sPCS5yMewrpTjUwD1hBmZ5teIWMDEDt11lpPaAHYRHJUzAJW41yhhYx18i_RGCkAd2wnYCOmcaHFUnPgPPN6NHIO6rX-HTj1IATlcR_N6QU74wN_-sJ3fwn7U9QOrFzmHGamOokMAMYnbW7kth5rU"/>
+<div class="absolute inset-0 bg-black/60"></div>
+<div class="relative z-10 text-center">
+<button class="w-24 h-24 bg-primary rounded-full flex items-center justify-center text-white mb-6 hover:scale-110 transition-transform mx-auto">
+<svg class="h-10 w-10 ml-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" fill-rule="evenodd"></path>
+</svg>
+</button>
+<h2 class="text-white text-4xl md:text-5xl font-black uppercase tracking-tight">Watch Our Story</h2>
+</div>
+</section>
+<!-- END: VideoSection -->
+<!-- BEGIN: ContactSection -->
+<section class="py-24 bg-white" id="contact">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<!-- Contact Form -->
+<div class="lg:col-span-8">
+<span class="text-primary font-bold tracking-[0.3em] uppercase text-sm block mb-4">Get In Touch</span>
+<h2 class="text-4xl md:text-5xl font-black mb-10">Send Us A Message</h2>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<input class="bg-surface border-none p-4 text-xs font-bold tracking-widest focus:ring-2 focus:ring-primary h-14" placeholder="YOUR NAME" type="text"/>
+<input class="bg-surface border-none p-4 text-xs font-bold tracking-widest focus:ring-2 focus:ring-primary h-14" placeholder="EMAIL ADDRESS" type="email"/>
+<input class="bg-surface border-none p-4 text-xs font-bold tracking-widest focus:ring-2 focus:ring-primary h-14" placeholder="PHONE NUMBER" type="text"/>
+<input class="bg-surface border-none p-4 text-xs font-bold tracking-widest focus:ring-2 focus:ring-primary h-14" placeholder="EVENT TYPE" type="text"/>
+<textarea class="bg-surface border-none p-4 text-xs font-bold tracking-widest focus:ring-2 focus:ring-primary md:col-span-2" placeholder="MESSAGE" rows="6"></textarea>
+<button class="bg-primary text-white px-10 py-5 text-sm font-bold tracking-[0.2em] uppercase hover:bg-black transition-all w-fit" type="submit">
+                Send Request
+              </button>
+</form>
+</div>
+<!-- Contact Sidebar -->
+<div class="lg:col-span-4 bg-surface p-12 flex flex-col justify-between">
+<div class="space-y-12">
+<div>
+<h4 class="text-lg font-bold mb-4 border-b border-black/10 pb-2">Visit Us</h4>
+<p class="text-gray-600 font-light leading-relaxed">
+                  123 Luxury Lane, Event Tower <br/>
+                  Floor 42, Manhattan, NY 10001
+                </p>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-4 border-b border-black/10 pb-2">Call Us</h4>
+<p class="text-gray-600 font-light text-xl">
+                  +1 (234) 567 8900 <br/>
+                  +1 (234) 888 1122
+                </p>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-4 border-b border-black/10 pb-2">Email</h4>
+<p class="text-gray-600 font-light">
+                  hello@eventsphere.com <br/>
+                  bookings@eventsphere.com
+                </p>
+</div>
+</div>
+<!-- Socials -->
+<div class="flex gap-4 pt-12">
+<a class="w-10 h-10 bg-white flex items-center justify-center hover:bg-primary hover:text-white transition-all shadow-sm" href="#">FB</a>
+<a class="w-10 h-10 bg-white flex items-center justify-center hover:bg-primary hover:text-white transition-all shadow-sm" href="#">IG</a>
+<a class="w-10 h-10 bg-white flex items-center justify-center hover:bg-primary hover:text-white transition-all shadow-sm" href="#">TW</a>
+<a class="w-10 h-10 bg-white flex items-center justify-center hover:bg-primary hover:text-white transition-all shadow-sm" href="#">LI</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ContactSection -->
+</main>
+<!-- BEGIN: Footer -->
+<footer class="bg-dark text-white pt-24 pb-12">
+<div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-24">
+<!-- Brand -->
+<div class="space-y-8">
+<a class="text-primary text-3xl font-black font-serif tracking-tight" href="#">EventSphere</a>
+<p class="text-white/50 text-sm leading-relaxed">
+          Premium event management company dedicated to turning your grandest ideas into reality. Excellence in every detail since 2010.
+        </p>
+</div>
+<!-- Quick Links -->
+<div>
+<h4 class="text-lg font-bold mb-8 uppercase tracking-widest text-primary">Quick Links</h4>
+<ul class="space-y-4 text-white/60 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">About Our Company</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Our Recent Projects</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Meet The Experts</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<!-- Services -->
+<div>
+<h4 class="text-lg font-bold mb-8 uppercase tracking-widest text-primary">Services</h4>
+<ul class="space-y-4 text-white/60 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Corporate Expos</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Luxury Weddings</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Private Concerts</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Event Decorations</a></li>
+</ul>
+</div>
+<!-- Newsletter -->
+<div>
+<h4 class="text-lg font-bold mb-8 uppercase tracking-widest text-primary">Newsletter</h4>
+<p class="text-white/50 text-sm mb-6">Subscribe for the latest event trends and exclusive offers.</p>
+<div class="flex">
+<input class="bg-white/5 border-none p-4 text-[10px] tracking-widest w-full focus:ring-1 focus:ring-primary" placeholder="EMAIL" type="email"/>
+<button class="bg-primary px-6 hover:bg-white transition-colors group">
+<svg class="h-5 w-5 group-hover:text-black" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+<!-- Copyright -->
+<div class="container mx-auto px-6 border-t border-white/10 pt-12 flex flex-col md:flex-row justify-between items-center gap-4 text-white/30 text-xs font-bold uppercase tracking-widest">
+<p>© 2023 EventSphere. All Rights Reserved.</p>
+<div class="flex gap-8">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Cookie Policy</a>
+</div>
+</div>
+</footer>
+<!-- END: Footer -->
+</body></html>

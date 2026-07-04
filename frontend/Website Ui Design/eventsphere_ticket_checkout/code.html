@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout | EventSphere</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#bb0054",
+                        "inverse-primary": "#ffb1c1",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface-container-high": "#e8e8e8",
+                        "tertiary": "#5d5c5b",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#ffd9df",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "outline": "#8e6f75",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#f7feff",
+                        "on-primary-fixed": "#3f0018",
+                        "background": "#f9f9f9",
+                        "surface-container-low": "#f3f3f3",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#ffb1c1",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#757474",
+                        "surface-container": "#eeeeee",
+                        "surface-dim": "#dadada",
+                        "on-primary-container": "#fffbff",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-secondary-fixed-variant": "#574500",
+                        "secondary": "#735c00",
+                        "inverse-surface": "#2f3131",
+                        "on-secondary-container": "#745c00",
+                        "secondary-container": "#fed65b",
+                        "on-secondary-fixed": "#241a00",
+                        "primary": "#b70052",
+                        "on-surface": "#1a1c1c",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f9f9f9",
+                        "on-primary-fixed-variant": "#8f003f",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#e5e2e1",
+                        "secondary-fixed": "#ffe088",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "on-background": "#1a1c1c",
+                        "surface-variant": "#e2e2e2",
+                        "secondary-fixed-dim": "#e9c349",
+                        "surface": "#f9f9f9",
+                        "on-surface-variant": "#5a4045",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#dd2269",
+                        "outline-variant": "#e2bdc3",
+                        "on-tertiary": "#ffffff",
+                        "gold-accent": "#D4AF37"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0rem",
+                        "lg": "0rem",
+                        "xl": "0rem",
+                        "full": "0rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "24px",
+                        "unit": "8px",
+                        "container-max": "1440px",
+                        "margin-desktop": "64px",
+                        "section-padding": "80px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Plus Jakarta Sans"],
+                        "headline-h1-mobile": ["Playfair Display"],
+                        "headline-h3": ["Playfair Display"],
+                        "headline-h1": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-sm": ["Plus Jakarta Sans"],
+                        "button": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-h2": ["Playfair Display"],
+                        "body-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-h1-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "headline-h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "headline-h1": ["40px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "button": ["14px", {"lineHeight": "1", "letterSpacing": "1px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-h2": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        /* Custom Zero Radius Override for all inputs */
+        input, button, div, span, img { border-radius: 0px !important; }
+        
+        .premium-border {
+            border-top: 2px solid #D4AF37;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto h-20">
+<div class="text-headline-h3 font-headline-h3 text-primary">EventSphere</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors duration-200" href="#">HOME</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors duration-200" href="#">ABOUT</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors duration-200" href="#">EVENTS</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors duration-200" href="#">GALLERY</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors duration-200" href="#">CONTACT</a>
+</div>
+<div class="flex items-center space-x-4">
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors duration-200" href="#">LOGIN</a>
+<button class="bg-primary text-on-primary font-button text-button px-6 py-3 hover:bg-primary-container transition-colors duration-200 active:opacity-80">
+                    MAKE AN APPOINTMENT
+                </button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="mt-32 mb-20 max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Column: Checkout Details -->
+<div class="lg:col-span-7 space-y-12">
+<section>
+<h1 class="font-headline-h1 text-headline-h1 mb-8">Checkout</h1>
+<!-- Section 1: Event Summary -->
+<div class="flex flex-col md:flex-row gap-8 bg-surface p-0 border border-outline-variant overflow-hidden">
+<div class="w-full md:w-48 h-48 flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A luxurious high-end event interior with crystalline chandeliers and deep mahogany accents. The scene is captured in a fashion editorial style with high contrast and sharp focus, featuring soft ambient gold lighting that highlights the prestige and exclusivity of the venue. Elegant floral arrangements are visible in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYSyAAVdCXQgfSKpgpEZWazM4bkagk28JoRiJZRRXbC6LX3nStsqyxtZuZ-8A_7X3aZYTw3nKWzo06mJlg2v_Yd8fX6SwgTXEmGANmeu8xo5xD6aPzL8NBswR1TM8xSPwMqM560s4EldLKApZTq1ZjGK4twgWQ00Q2ozWk-XSAao4Oc7Qafam18M9UOcMvpjl6iOjD75ELGpIHka-KQyDlgoKni-PMlLlqVPWYtKrb-j_RW0wMiU8i-wG332jYS8XX17NgtLvJpm0"/>
+</div>
+<div class="flex flex-col justify-center p-6 space-y-2">
+<span class="font-label-caps text-label-caps text-gold-accent">VIP ACCESS</span>
+<h2 class="font-headline-h2 text-headline-h2">Global Prestige Expo 2024</h2>
+<div class="flex items-center space-x-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span class="font-body-sm text-body-sm">October 24, 2024</span>
+</div>
+<div class="flex items-center space-x-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="font-body-sm text-body-sm">Metropolitan Grand Hall, Paris</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Payment Details -->
+<section class="space-y-8">
+<div class="flex items-center space-x-4">
+<span class="font-headline-h3 text-headline-h3">02</span>
+<h3 class="font-headline-h3 text-headline-h3 border-b-2 border-primary pb-1 inline-block">Payment Details</h3>
+</div>
+<form class="space-y-6">
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-on-surface-variant">CARDHOLDER NAME</label>
+<input class="w-full bg-surface border border-outline-variant px-4 py-3 focus:ring-0 focus:border-primary transition-colors outline-none font-body-md text-body-md" placeholder="Johnathan Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-on-surface-variant">CARD NUMBER</label>
+<div class="relative">
+<input class="w-full bg-surface border border-outline-variant px-4 py-3 focus:ring-0 focus:border-primary transition-colors outline-none font-body-md text-body-md" placeholder="0000 0000 0000 0000" type="text"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant">credit_card</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-on-surface-variant">EXPIRY DATE</label>
+<input class="w-full bg-surface border border-outline-variant px-4 py-3 focus:ring-0 focus:border-primary transition-colors outline-none font-body-md text-body-md" placeholder="MM / YY" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-on-surface-variant">CVV</label>
+<input class="w-full bg-surface border border-outline-variant px-4 py-3 focus:ring-0 focus:border-primary transition-colors outline-none font-body-md text-body-md" placeholder="123" type="text"/>
+</div>
+</div>
+<div class="flex items-start space-x-3 py-4">
+<input class="mt-1 border-outline-variant text-primary focus:ring-0" id="terms" type="checkbox"/>
+<label class="font-body-sm text-body-sm text-on-surface-variant" for="terms">
+                                By clicking Pay Now, I agree to the <a class="underline text-on-surface hover:text-primary transition-colors" href="#">Terms of Service</a> and Privacy Policy.
+                            </label>
+</div>
+</form>
+</section>
+</div>
+<!-- Right Column: Order Summary -->
+<aside class="lg:col-span-5">
+<div class="sticky top-32 premium-border bg-white border border-outline-variant p-8 space-y-8 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
+<h3 class="font-headline-h3 text-headline-h3 uppercase tracking-wider">Order Summary</h3>
+<div class="space-y-4 border-b border-outline-variant pb-6">
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-body-md">VIP Access Ticket</span>
+<span class="font-body-md font-semibold text-on-surface">$275.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-body-md">Service Fee</span>
+<span class="font-body-md font-semibold text-on-surface">$24.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-body-md">VAT (0%)</span>
+<span class="font-body-md font-semibold text-on-surface">$0.00</span>
+</div>
+</div>
+<div class="flex justify-between items-center pt-2">
+<span class="font-headline-h3 text-headline-h3 uppercase">Total</span>
+<span class="font-headline-h2 text-headline-h2 text-primary font-bold">$299.00</span>
+</div>
+<div class="bg-surface p-4 border border-outline-variant flex items-center space-x-4">
+<span class="material-symbols-outlined text-gold-accent">verified</span>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface">PRESTIGE GUARANTEE</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Your transaction is encrypted and secure.</p>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-button text-button py-6 flex items-center justify-center space-x-3 group hover:bg-primary-container transition-all duration-300">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">lock</span>
+<span>PAY NOW</span>
+</button>
+<div class="flex justify-center space-x-6 pt-4">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant opacity-50 text-3xl">payments</span>
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant opacity-50 text-3xl">account_balance</span>
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant opacity-50 text-3xl">shopping_cart</span>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-padding bg-inverse-surface border-t border-tertiary-container">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+<div class="space-y-4">
+<div class="text-headline-h3 font-headline-h3 text-primary">EventSphere</div>
+<p class="font-body-sm text-body-sm text-tertiary-fixed-dim leading-relaxed">
+                    Crafting extraordinary moments for global leaders. Our platform provides a seamless bridge between operational excellence and high-end aesthetics.
+                </p>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-caps text-label-caps text-on-primary">QUICK LINKS</h4>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-body-sm text-tertiary-fixed-dim hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="font-body-sm text-body-sm text-tertiary-fixed-dim hover:text-primary transition-colors" href="#">Refund Policy</a></li>
+<li><a class="font-body-sm text-body-sm text-tertiary-fixed-dim hover:text-primary transition-colors" href="#">Support Center</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-caps text-label-caps text-on-primary">SERVICES</h4>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-body-sm text-tertiary-fixed-dim hover:text-primary transition-colors" href="#">VIP Concierge</a></li>
+<li><a class="font-body-sm text-body-sm text-tertiary-fixed-dim hover:text-primary transition-colors" href="#">Corporate Events</a></li>
+<li><a class="font-body-sm text-body-sm text-tertiary-fixed-dim hover:text-primary transition-colors" href="#">Expo Strategy</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-caps text-label-caps text-on-primary">NEWSLETTER</h4>
+<div class="flex">
+<input class="bg-transparent border border-tertiary-fixed-dim px-4 py-2 w-full text-on-primary focus:border-primary outline-none text-body-sm" placeholder="Email" type="email"/>
+<button class="bg-primary px-4 py-2 text-on-primary hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop mt-16 pt-8 border-t border-tertiary-fixed-dim/10 text-center">
+<p class="font-body-sm text-body-sm text-tertiary-fixed-dim">© 2024 EventSphere. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Micro-interaction for form focus
+        const inputs = document.querySelectorAll('input[type="text"]');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('label')?.classList.add('text-primary');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('label')?.classList.remove('</script></body></html>

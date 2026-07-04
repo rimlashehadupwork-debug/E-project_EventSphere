@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EventSphere Admin Dashboard</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Playfair Display for Headlines, Plus Jakarta Sans for UI, Poppins for Data -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Poppins:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Design System Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#757474",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#5a4045",
+                    "on-tertiary-container": "#f7feff",
+                    "on-secondary-container": "#745c00",
+                    "surface-bright": "#f9f9f9",
+                    "primary-container": "#dd2269",
+                    "on-primary-fixed": "#3f0018",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "secondary-container": "#fed65b",
+                    "on-secondary-fixed": "#241a00",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#474746",
+                    "primary": "#b70052",
+                    "surface-variant": "#e2e2e2",
+                    "surface-tint": "#bb0054",
+                    "surface-container-low": "#f3f3f3",
+                    "on-surface": "#1a1c1c",
+                    "surface-container-highest": "#e2e2e2",
+                    "outline": "#8e6f75",
+                    "primary-fixed": "#ffd9df",
+                    "secondary-fixed-dim": "#e9c349",
+                    "secondary": "#735c00",
+                    "primary-fixed-dim": "#ffb1c1",
+                    "on-background": "#1a1c1c",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-error": "#ffffff",
+                    "surface-container": "#eeeeee",
+                    "surface": "#f9f9f9",
+                    "secondary-fixed": "#ffe088",
+                    "outline-variant": "#e2bdc3",
+                    "on-secondary-fixed-variant": "#574500",
+                    "on-primary": "#ffffff",
+                    "on-primary-container": "#fffbff",
+                    "background": "#f9f9f9",
+                    "tertiary": "#5d5c5b",
+                    "on-primary-fixed-variant": "#8f003f",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#dadada",
+                    "inverse-surface": "#2f3131",
+                    "surface-container-high": "#e8e8e8",
+                    "tertiary-fixed": "#e5e2e1",
+                    "inverse-primary": "#ffb1c1",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-mobile": "24px",
+                    "margin-desktop": "64px",
+                    "container-max": "1440px",
+                    "unit": "8px",
+                    "section-padding": "80px"
+            },
+            "fontFamily": {
+                    "button": ["Plus Jakarta Sans"],
+                    "headline-h1": ["Playfair Display"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-h3": ["Playfair Display"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "body-sm": ["Plus Jakarta Sans"],
+                    "headline-h1-mobile": ["Playfair Display"],
+                    "label-caps": ["Plus Jakarta Sans"],
+                    "display-lg": ["Playfair Display"],
+                    "headline-h2": ["Playfair Display"],
+                    "data": ["Poppins"]
+            },
+            "fontSize": {
+                    "button": ["14px", {"lineHeight": "1", "letterSpacing": "1px", "fontWeight": "600"}],
+                    "headline-h1": ["40px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-h1-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-h2": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #1a1c1c;
+        }
+        .sharp-card {
+            background: #FFFFFF;
+            border: 1px solid #EEEEEE;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .sharp-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e2e2e2; }
+        ::-webkit-scrollbar-thumb:hover { background: #b70052; }
+
+        /* Entrance Animations */
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes fadeInUpStaggered {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .animate-sidebar {
+            animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .staggered-entry {
+            opacity: 0;
+            animation: fadeInUpStaggered 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .pulse-notification {
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        /* Table Row Hover Enhancement */
+        tbody tr {
+            transition: background-color 0.3s ease;
+        }
+        tbody tr:hover {
+            background-color: #fdf2f5 !important;
+        }
+    </style>
+</head>
+<body class="font-body-md overflow-x-hidden">
+<!-- Sidebar Navigation Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-inverse-surface flex flex-col py-8 z-50 animate-sidebar" id="sidebar">
+<div class="text-headline-h3 font-headline-h3 text-primary mb-12 px-6">
+            EventSphere
+        </div>
+<nav class="flex-grow">
+<ul class="space-y-1">
+<!-- Dashboard Active State -->
+<li>
+<a class="flex items-center text-on-primary bg-transparent border-l-4 border-primary px-6 py-4 transition-transform active:scale-95 group" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="dashboard">dashboard</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center text-tertiary-fixed-dim hover:text-on-primary hover:bg-tertiary-container px-6 py-4 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="event">event</span>
+<span class="font-label-caps text-label-caps">Events</span>
+</a>
+</li>
+<li>
+<a class="flex items-center text-tertiary-fixed-dim hover:text-on-primary hover:bg-tertiary-container px-6 py-4 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="storefront">storefront</span>
+<span class="font-label-caps text-label-caps">Exhibitors</span>
+</a>
+</li>
+<li>
+<a class="flex items-center text-tertiary-fixed-dim hover:text-on-primary hover:bg-tertiary-container px-6 py-4 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="group">group</span>
+<span class="font-label-caps text-label-caps">Attendees</span>
+</a>
+</li>
+<li>
+<a class="flex items-center text-tertiary-fixed-dim hover:text-on-primary hover:bg-tertiary-container px-6 py-4 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="insights">insights</span>
+<span class="font-label-caps text-label-caps">Analytics</span>
+</a>
+</li>
+<li>
+<a class="flex items-center text-tertiary-fixed-dim hover:text-on-primary hover:bg-tertiary-container px-6 py-4 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="settings">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+</li>
+</ul>
+</nav>
+<div class="px-6 pt-8 border-t border-outline border-opacity-20 mt-auto">
+<a class="flex items-center text-tertiary-fixed-dim hover:text-on-primary px-2 py-4" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="help">help</span>
+<span class="font-label-caps text-label-caps">Help Center</span>
+</a>
+<button class="w-full mt-4 text-left px-2 py-4 text-error font-label-caps text-label-caps hover:bg-error-container hover:bg-opacity-10 transition-colors">
+                LOGOUT
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- Top App Bar -->
+<header class="sticky top-0 w-full z-40 bg-surface border-b border-outline-variant h-20 flex justify-between items-center px-12">
+<div class="flex items-center space-x-12">
+<h1 class="font-headline-h2 text-headline-h2 text-on-surface">Dashboard</h1>
+<!-- Search Bar -->
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="bg-surface-container-low border border-outline-variant px-10 py-2 text-body-sm focus:outline-none focus:border-primary w-80 sharp" placeholder="Search events or attendees..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-6">
+<button class="relative p-2 hover:bg-surface-container-high transition-colors active:scale-95 group">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary pulse-notification"></span>
+</button>
+<div class="flex items-center space-x-4 pl-4 border-l border-outline-variant">
+<div class="text-right">
+<p class="font-label-caps text-[10px] text-on-surface-variant">EVENT MANAGER</p>
+<p class="font-body-sm font-bold text-on-surface">Alex Stratton</p>
+</div>
+<div class="w-10 h-10 bg-surface-container-highest border border-outline-variant overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a premium event manager in their 30s, dressed in a sleek charcoal blazer with a minimalist white shirt." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQk8JgsRgkiKudLjKN_dNeJNCrubI6Pqgb9z9lxjyoanwx0SOSrBIoHcba63WF0n2WBcXkgQwe1rs-0ukcsdnyRf8c18guXiEkidyJU3BZ6PFURbLR7xc1ewBuBr09yb0bexPjxNdr2WAKheC-Hd2dNg3dAw2ghbLO4Aor1158mCTgF2mwEhLpgjQygeu6GnD8a9pA6iu_Qif9ThFZVd3-jvvNuoWwUUFwAU2ByHFv_D6iJajwVLiuKCMz81WAv-A-sKbXJlIiCWM"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-12 max-w-container-max mx-auto space-y-10">
+<!-- Quick Actions Section -->
+<div class="flex justify-between items-end staggered-entry" style="animation-delay: 0.1s;">
+<div>
+<h2 class="font-headline-h3 text-headline-h3 text-on-surface">Overview</h2>
+<p class="text-on-surface-variant font-body-sm">Welcome back. Here is what is happening today.</p>
+</div>
+<div class="flex space-x-4">
+<button class="bg-primary text-on-primary px-8 py-3 font-button text-button uppercase transition-colors hover:bg-[#E91E63] active:scale-95">
+                        Create New Event
+                    </button>
+<button class="bg-transparent border border-on-surface text-on-surface px-8 py-3 font-button text-button uppercase transition-colors hover:bg-on-surface hover:text-white active:scale-95">
+                        View Reports
+                    </button>
+</div>
+</div>
+<!-- Stats Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="sharp-card p-6 border-l-[6px] border-primary staggered-entry" style="animation-delay: 0.2s;">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2">TOTAL EVENTS</p>
+<h3 class="font-data text-3xl font-semibold text-on-surface counter" data-target="12">0</h3>
+<div class="mt-4 flex items-center text-green-600 text-xs font-semibold">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="trending_up">trending_up</span>
+                        8% from last month
+                    </div>
+</div>
+<div class="sharp-card p-6 border-l-[6px] border-[#2196F3] staggered-entry" style="animation-delay: 0.3s;">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2">TOTAL EXHIBITORS</p>
+<h3 class="font-data text-3xl font-semibold text-on-surface counter" data-target="48">0</h3>
+<div class="mt-4 flex items-center text-green-600 text-xs font-semibold">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="trending_up">trending_up</span>
+                        12% from last month
+                    </div>
+</div>
+<div class="sharp-card p-6 border-l-[6px] border-[#4CAF50] staggered-entry" style="animation-delay: 0.4s;">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2">TOTAL ATTENDEES</p>
+<h3 class="font-data text-3xl font-semibold text-on-surface counter" data-target="1240">0</h3>
+<div class="mt-4 flex items-center text-green-600 text-xs font-semibold">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="trending_up">trending_up</span>
+                        24% from last month
+                    </div>
+</div>
+<div class="sharp-card p-6 border-l-[6px] border-[#D4AF37] staggered-entry" style="animation-delay: 0.5s;">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2">REVENUE</p>
+<h3 class="font-data text-3xl font-semibold text-on-surface counter" data-prefix="$" data-target="45230">0</h3>
+<div class="mt-4 flex items-center text-on-surface-variant text-xs font-semibold">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="trending_flat">trending_flat</span>
+                        Steady state
+                    </div>
+</div>
+</div>
+<!-- Middle Section: Analytics & Activity -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Registration Trend -->
+<div class="lg:col-span-2 sharp-card p-8 staggered-entry" style="animation-delay: 0.6s;">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-label-caps text-label-caps text-on-surface">Registration Trend</h3>
+<select class="bg-surface border-outline-variant text-label-caps font-label-caps px-4 py-1 focus:ring-0 focus:border-primary">
+<option>LAST 7 DAYS</option>
+<option>LAST 30 DAYS</option>
+</select>
+</div>
+<!-- Chart Placeholder -->
+<div class="h-64 w-full relative flex items-end space-x-4 px-4">
+<div class="flex-1 bg-surface-container-high h-[40%] hover:bg-primary transition-all duration-300 cursor-pointer group relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-inverse-surface text-on-primary text-[10px] px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">85 Registrations</div>
+</div>
+<div class="flex-1 bg-surface-container-high h-[65%] hover:bg-primary transition-all duration-300 cursor-pointer group relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-inverse-surface text-on-primary text-[10px] px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">120 Registrations</div>
+</div>
+<div class="flex-1 bg-primary h-[90%] group relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-inverse-surface text-on-primary text-[10px] px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">182 Registrations</div>
+</div>
+<div class="flex-1 bg-surface-container-high h-[55%] hover:bg-primary transition-all duration-300 cursor-pointer group relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-inverse-surface text-on-primary text-[10px] px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">110 Registrations</div>
+</div>
+<div class="flex-1 bg-surface-container-high h-[75%] hover:bg-primary transition-all duration-300 cursor-pointer group relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-inverse-surface text-on-primary text-[10px] px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">145 Registrations</div>
+</div>
+<div class="flex-1 bg-surface-container-high h-[60%] hover:bg-primary transition-all duration-300 cursor-pointer group relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-inverse-surface text-on-primary text-[10px] px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">118 Registrations</div>
+</div>
+<div class="flex-1 bg-surface-container-high h-[85%] hover:bg-primary transition-all duration-300 cursor-pointer group relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-inverse-surface text-on-primary text-[10px] px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">160 Registrations</div>
+</div>
+</div>
+<div class="flex justify-between mt-4 px-4 font-label-caps text-[10px] text-on-surface-variant">
+<span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span>
+</div>
+</div>
+<!-- Recent Activity Feed -->
+<div class="sharp-card p-8 staggered-entry" style="animation-delay: 0.7s;">
+<h3 class="font-label-caps text-label-caps text-on-surface mb-8">System Logs</h3>
+<div class="space-y-6">
+<div class="flex space-x-4 items-start hover:translate-x-1 transition-transform cursor-default">
+<div class="w-2 h-2 rounded-full bg-primary mt-2"></div>
+<div>
+<p class="font-body-sm text-on-surface">New registration: Sarah Jenkins</p>
+<p class="text-[12px] text-on-surface-variant">2 mins ago</p>
+</div>
+</div>
+<div class="flex space-x-4 items-start hover:translate-x-1 transition-transform cursor-default">
+<div class="w-2 h-2 rounded-full bg-[#4CAF50] mt-2"></div>
+<div>
+<p class="font-body-sm text-on-surface">Event "Tech Expo" status changed to Active</p>
+<p class="text-[12px] text-on-surface-variant">15 mins ago</p>
+</div>
+</div>
+<div class="flex space-x-4 items-start hover:translate-x-1 transition-transform cursor-default">
+<div class="w-2 h-2 rounded-full bg-[#2196F3] mt-2"></div>
+<div>
+<p class="font-body-sm text-on-surface">Payout of $12,400 initiated</p>
+<p class="text-[12px] text-on-surface-variant">1 hour ago</p>
+</div>
+</div>
+<div class="flex space-x-4 items-start hover:translate-x-1 transition-transform cursor-default">
+<div class="w-2 h-2 rounded-full bg-primary mt-2"></div>
+<div>
+<p class="font-body-sm text-on-surface">New exhibitor application: Quantum Labs</p>
+<p class="text-[12px] text-on-surface-variant">3 hours ago</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 text-center text-primary font-label-caps text-[10px] hover:underline">VIEW ALL ACTIVITY</button>
+</div>
+</div>
+<!-- Recent Events Table -->
+<div class="sharp-card overflow-hidden staggered-entry" style="animation-delay: 0.8s;">
+<div class="px-8 py-6 border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-headline-h3 text-headline-h3 text-on-surface">Recent Events</h3>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-[#FAFAFA] border-b border-outline-variant font-label-caps text-label-caps text-on-surface-variant">
+<tr>
+<th class="px-8 py-4">Event Name</th>
+<th class="px-8 py-4">Date</th>
+<th class="px-8 py-4">Location</th>
+<th class="px-8 py-4">Status</th>
+<th class="px-8 py-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="font-data text-on-surface divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="group">
+<td class="px-8 py-6 font-semibold">Luxury Hospitality Summit</td>
+<td class="px-8 py-6 text-on-surface-variant">Oct 24 - 26, 2024</td>
+<td class="px-8 py-6 text-on-surface-variant">Grand Hyatt, NYC</td>
+<td class="px-8 py-6">
+<span class="bg-[#E8F5E9] text-[#2E7D32] px-3 py-1 text-[10px] font-bold uppercase">Active</span>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="p-2 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-on-surface-variant" data-icon="edit">edit</span></button>
+<button class="p-2 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-on-surface-variant" data-icon="more_vert">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group">
+<td class="px-8 py-6 font-semibold">Modern Art Biennale</td>
+<td class="px-8 py-6 text-on-surface-variant">Nov 12 - 15, 2024</td>
+<td class="px-8 py-6 text-on-surface-variant">Metropolitan Expo</td>
+<td class="px-8 py-6">
+<span class="bg-[#E3F2FD] text-[#1565C0] px-3 py-1 text-[10px] font-bold uppercase">Upcoming</span>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="p-2 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-on-surface-variant" data-icon="edit">edit</span></button>
+<button class="p-2 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-on-surface-variant" data-icon="more_vert">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group">
+<td class="px-8 py-6 font-semibold">Global Fintech Expo</td>
+<td class="px-8 py-6 text-on-surface-variant">Sep 05 - 07, 2024</td>
+<td class="px-8 py-6 text-on-surface-variant">Convention Centre</td>
+<td class="px-8 py-6">
+<span class="bg-[#F5F5F5] text-[#616161] px-3 py-1 text-[10px] font-bold uppercase">Completed</span>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="p-2 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-on-surface-variant" data-icon="edit">edit</span></button>
+<button class="p-2 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-on-surface-variant" data-icon="more_vert">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w-full py-8 px-12 mt-12 bg-surface-container border-t border-outline-variant staggered-entry" style="animation-delay: 1s;">
+<div class="flex justify-between items-center max-w-container-max mx-auto">
+<p class="font-body-sm text-on-surface-variant">© 2024 EventSphere Admin Portal. All rights reserved.</p>
+<div class="flex space-x-6">
+<a class="font-label-caps text-[10px] text-on-surface-variant hover:text-primary" href="#">System Status</a>
+<a class="font-label-caps text-[10px] text-on-surface-variant hover:text-primary" href="#">API Documentation</a>
+<a class="font-label-caps text-[10px] text-on-surface-variant hover:text-primary" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</main>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Interactive Counters Animation
+            const counters = document.querySelectorAll('.counter');
+            const duration = 2000; // 2 seconds
+
+            const animateCounter = (el) => {
+                const target = parseInt(el.getAttribute('data-target'));
+                const prefix = el.getAttribute('data-prefix') || '';
+                let startTimestamp = null;
+
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    // Cubic ease-out for smoother counting
+                    const easedProgress = 1 - Math.pow(1 - progress, 3);
+                    const current = Math.floor(easedProgress * target);
+                    
+                    el.innerText = prefix + current.toLocaleString();
+                    
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        el.innerText = prefix + target.toLocaleString();
+                    }
+                };
+                window.requestAnimationFrame(step);
+            };
+
+            // Start counters with a slight delay for better visual flow
+            setTimeout(() => {
+                counters.forEach(animateCounter);
+            }, 400);
+
+            // Handle scale interactions for primary buttons
+            const buttons = document.querySelectorAll('button, a');
+            buttons.forEach(btn => {
+                btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+                btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+                btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+            });
+        });
+    </script>
+</body></html>
